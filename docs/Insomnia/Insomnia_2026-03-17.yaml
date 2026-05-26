@@ -1,0 +1,96 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: '"Notificações API"'
+meta:
+  id: wrk_6f07b1833bc843fa85ac078049fc4300
+  created: 1773748852032
+  modified: 1773748852032
+  description: ""
+collection:
+  - url: http://localhost:3000/eventos
+    name: Evento
+    meta:
+      id: req_38a0c0e4d1a947b3a5386097e609d475
+      created: 1773748879208
+      modified: 1773748978207
+      isPrivate: false
+      description: ""
+      sortKey: -1773748879208
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/eventos
+    name: Evento JSON
+    meta:
+      id: req_7f31f5fb84d84836a497f6b8ffe7b9c1
+      created: 1773748982341
+      modified: 1773749114389
+      isPrivate: false
+      description: ""
+      sortKey: -1773748982341
+    method: POST
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api-docs
+    name: Api-docs
+    meta:
+      id: req_06bb1f7ab811478c8a3c9d9e7e8b871b
+      created: 1773749032729
+      modified: 1773749089286
+      isPrivate: false
+      description: ""
+      sortKey: -1773749032729
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.4.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_af96d41429656d4058da01e903b016683f16d1a3
+    created: 1773748852035
+    modified: 1773748852035
+environments:
+  name: Base Environment
+  meta:
+    id: env_af96d41429656d4058da01e903b016683f16d1a3
+    created: 1773748852034
+    modified: 1773748852034
+    isPrivate: false
