@@ -93,3 +93,43 @@ src/
 ├── app.js           → Configuração do Express
 └── server.js        → Inicialização do servidor
 ````
+
+### Notificações
+
+| Método | Rota | Descrição |
+
+|--------|------|-----------|
+
+| GET | /notificacoes | Listar (filtros: tipo, enviada) |
+
+| GET | /notificacoes/estatisticas | Dashboard de envios |
+
+| GET | /notificacoes/:id | Detalhes |
+
+| POST | /notificacoes/:id/reenviar | Reenviar |
+
+| POST | /notificacoes/teste-email | Enviar e-mail de teste |
+
+### Exportação
+
+| Método | Rota | Descrição |
+
+|--------|------|-----------|
+
+| GET | /exportar/eventos/xml | Eventos em XML |
+
+| GET | /exportar/eventos/json | Eventos em JSON (download) |
+
+| GET | /exportar/relatorio/inscricoes | Relatório de inscrições |
+
+## 📧 Sistema de Notificações
+
+A API envia e-mails automaticamente usando o **Padrão Observer**:
+
+- **Confirmação de inscrição** — enviado ao criar uma inscrição
+
+- **Cancelamento** — enviado ao cancelar uma inscrição
+
+Em desenvolvimento, os e-mails são capturados pelo **MailPit** (servidor SMTP local).
+
+Visualize os e-mails em `http://MAILPIT_IP:8025`.

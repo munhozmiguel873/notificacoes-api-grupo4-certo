@@ -9,6 +9,16 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
+      inscricao_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "inscricoes",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
       tipo: {
         type: Sequelize.ENUM("confirmacao", "lembrete"),
         allowNull: false,

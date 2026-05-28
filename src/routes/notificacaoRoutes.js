@@ -63,4 +63,86 @@ router.post('/teste-email', async (req, res, next) => {
   }
 });
 
+```js
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Notificacao:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *         tipo:
+ *           type: string
+ *           enum: [confirmacao, lembrete]
+ *         destinatario_email:
+ *           type: string
+ *         assunto:
+ *           type: string
+ *         enviada:
+ *           type: boolean
+ *         data_envio:
+ *           type: string
+ *           format: date-time
+ */
+
+/**
+ * @swagger
+ * /notificacoes:
+ *   get:
+ *     summary: Listar notificações
+ *     tags: [Notificações]
+ *     parameters:
+ *       - in: query
+ *         name: tipo
+ *         schema:
+ *           type: string
+ *           enum: [confirmacao, lembrete]
+ *       
+ *       - in: query
+ *         name: enviada
+ *         schema:
+ *           type: string
+ *           enum: [true, false]
+ *     
+ *     responses:
+ *       200:
+ *         description: Lista de notificações
+ */
+
+/**
+ * @swagger
+ * /notificacoes/estatisticas:
+ *   get:
+ *     summary: Estatísticas de envio
+ *     tags: [Notificações]
+ *     responses:
+ *       200:
+ *         description: Contagens de notificações
+ */
+
+/**
+ * @swagger
+ * /notificacoes/{id}/reenviar:
+ *   post:
+ *     summary: Reenviar uma notificação
+ *     tags: [Notificações]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     
+ *     responses:
+ *       200:
+ *         description: Notificação reenviada
+ *       
+ *       404:
+ *         description: Notificação não encontrada
+ */
+```
+
+
 module.exports = router;

@@ -1,0 +1,748 @@
+{
+  "info": {
+    "_postman_id": "e5e6e2c8-0ed9-4cf8-8f24-b1a31bbf8599",
+    "name": "Notificações API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52948270",
+    "_collection_link": "https://go.postman.co/collection/52948270-e5e6e2c8-0ed9-4cf8-8f24-b1a31bbf8599?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Eventos",
+      "item": [
+        {
+          "name": "GET eventos",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/eventos",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "eventos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET evento by id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"nome\": \"Ir na casa do j\",\r\n\"descricao\": \"Como construir APIs profissionais\",\r\n\"data\": \"2025-10-10\",\r\n\"local\": \"SENAI - Sala 5\",\r\n\"capacidade\": 50\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/eventos",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "eventos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST evento",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"nome\": \"Palestra sobre APIs REST\",\r\n\"descricao\": \"Como construir APIs profissionais\",\r\n\"data\": \"2025-10-10\",\r\n\"local\": \"SENAI - Sala 5\",\r\n\"capacidade\": 50\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/eventos",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "eventos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT evento",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"Hackathon SENAI 2026\",\r\n    \"descricao\": \"Maior maratona de programação\",\r\n    \"data\": \"2025-09-20T08:00:00.000Z\",\r\n    \"local\": \"SENAI - Auditório em São Paulo-SP\",\r\n    \"capacidade\": 200\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/eventos/2",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "eventos",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE evento",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/eventos/6",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "eventos",
+                "6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST eventos banner",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://10.137.148.125:3000/eventos/2/banner",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "eventos",
+                "2",
+                "banner"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Participantes",
+      "item": [
+        {
+          "name": "GET participantes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://10.137.148.125:3000/participantes",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "participantes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET participante by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/participantes/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "participantes",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST participante",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"nome\": \"João Marcelo\", \r\n    \"email\": \"joao.m@email.com\" \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/participantes",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "participantes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT participante",
+          "request": {
+            "method": "PUT",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE participante",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/eventos/4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "eventos",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Inscrição",
+      "item": [
+        {
+          "name": "GET inscrição",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/exportar/relatorio/inscricoes",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "exportar",
+                "relatorio",
+                "inscricoes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET inscrição by id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/inscricoes/eventos/2",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "inscricoes",
+                "eventos",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST inscrição",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n \"eventoId\": 8,\r\n \"participanteId\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/inscricoes",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "inscricoes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT inscrição",
+          "request": {
+            "method": "PUT",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE inscrição",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/inscricoes/3/cancelar",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "inscricoes",
+                "3",
+                "cancelar"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Notificação",
+      "item": [
+        {
+          "name": "GET notificação",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/notificacoes",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "notificacoes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET notificação by id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/notificacoes/estatisticas",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "notificacoes",
+                "estatisticas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET notificação estatistica",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/notificacoes/estatisticas",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "notificacoes",
+                "estatisticas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST notificação reenviar",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n \"eventoId\": 2,\r\n \"participanteId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/inscricoes/1/reenviar",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "inscricoes",
+                "1",
+                "reenviar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST notificação teste",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n \"eventoId\": 2,\r\n \"participanteId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/inscricoes",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "inscricoes"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Exportação",
+      "item": [
+        {
+          "name": "GET exportar xml",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n \"eventoId\": 2,\r\n \"participanteId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/exportar/eventos/xml",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "exportar",
+                "eventos",
+                "xml"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET exportar JSON",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n \"eventoId\": 2,\r\n \"participanteId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET exportar relatorio",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n \"eventoId\": 2,\r\n \"participanteId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://10.137.148.125:3000/exportar/relatorio/inscricoes",
+              "protocol": "http",
+              "host": [
+                "10",
+                "137",
+                "148",
+                "125"
+              ],
+              "port": "3000",
+              "path": [
+                "exportar",
+                "relatorio",
+                "inscricoes"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
