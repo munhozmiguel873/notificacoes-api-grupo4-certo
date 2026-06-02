@@ -1,7 +1,6 @@
-// src/services/NotificacaoService.js
 const { Notificacao, Inscricao, Evento, Participante } = require('../models');
 const EmailService = require('./EmailService');
-const { NotFoundError, ValidationError } = require('../errors/AppError');
+const { NotFoundError } = require("../errors/AppError");
 const confirmacaoInscricao = require('../templates/email/confirmacaoInscricao');
 
 async function listarTodas(filtros = {}) {

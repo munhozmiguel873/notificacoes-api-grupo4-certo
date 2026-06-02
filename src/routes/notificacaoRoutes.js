@@ -63,7 +63,7 @@ router.post('/teste-email', async (req, res, next) => {
   }
 });
 
-```js
+
 /**
  * @swagger
  * components:
@@ -142,7 +142,6 @@ router.post('/teste-email', async (req, res, next) => {
  *       404:
  *         description: Notificação não encontrada
  */
-```
 
 
 module.exports = router;
