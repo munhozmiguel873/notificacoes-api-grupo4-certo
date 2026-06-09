@@ -24,21 +24,21 @@ O escopo do projeto inclui o desenvolvimento de uma API REST para gerenciar even
 ---
 
 ## 2. Tecnologias Utilizadas
----------------------------------------------------------------------------------------------------------|
-| Tecnologia | Versão | Justificativa                                                                    |
-| ---------- | ------ | ---------------------------------------------------------------------------------|
-| Node.js    | v18+   |escolhemos o Node.js por ser uma plataforma de desenvolvimento leve e eficiente e |   
-|            |        |ideal para construir APIs.                                                        |
-| -------------------------------------------------------------------------------------------------------|
-| Express.js | 4.x    |Optamos pelo Express.js por ser um framework minimalista e flexível para Node.js, que    
-                       facilita a criação de APIs  RESTful.                                                           | 
-| -------------------------------------------------------------------------------------------------------|
-| MySQL      | 8.0    | [por que — sinergia com BD]                                                      |
-| -------------------------------------------------------------------------------------------------------|
-| Sequelize  | 6.x    | [por que]                                                                        |
-| -------------------------------------------------------------------------------------------------------|
-| ...        |        |                                                                                  |
-| -------------------------------------------------------------------------------------------------------|
+______________________________________________________________________________________________________________
+| Tecnologia | Versão |                                   Justificativa                                       |
+|------------|--------| --------------------------------------------------------------------------------------|
+| Node.js    | v18+   | Escolhemos o Node.js por ser uma plataforma de desenvolvimento leve e eficiente e     |   
+|            |        | ideal para construir APIs.                                                            |
+|------------|--------|---------------------------------------------------------------------------------------|
+| Express.js | 4.x    | Optamos pelo Express.js por ser um framework minimalista e flexível para Node.js, que |   
+|            |        | facilita a criação de APIs  RESTful.                                                  | 
+| -----------|--------|---------------------------------------------------------------------------------------|
+| MySQL      | 8.0    | [por que — sinergia com BD]                                                           |
+| -----------|--------|---------------------------------------------------------------------------------------|
+| Sequelize  | 6.x    | [por que]                                                                             |
+| -----------|--------|---------------------------------------------------------------------------------------|
+| ...        |        |                                                                                       |
+| -----------|--------|---------------------------------------------------------------------------------------|
 
 
 | Node.js    | v18+   | [por que escolheram]
@@ -71,19 +71,19 @@ Optamos pelo Sequelize como nosso ORM (Object-Relational Mapping) para facilitar
 ---
 
 ## 4. Funcionalidades Implementadas
-| Funcionalidade | Status | Bloco PBE |
+|           Funcionalidade          |    Status   | Bloco PBE |
 | --------------------------------- | ----------- | --------- |
-| CRUD de Eventos | ✅ Completo | 1 e 3 |
-| CRUD de Participantes | ✅ Completo | 1 e 3 |
-| Inscrições | ✅ Completo | 1 e 3 |
-| Middlewares e tratamento de erros | ✅ Completo | 2 |
-| Validação de dados | ✅ Completo | 2 |
-| Persistência MySQL | ✅ Completo | 3 |
-| Exportação JSON/XML | ✅ Completo | 3 |
-| Upload de arquivos | ✅ Completo | 3 |
-| Notificações por e-mail | [status] | 4 |
-| Deploy | [status] | 5 |
-| Documentação Swagger | [status] | 5 |
+| CRUD de Eventos                   | ✅ Completo |  1 e 3   |
+| CRUD de Participantes             | ✅ Completo |  1 e 3   |
+| Inscrições                        | ✅ Completo |  1 e 3   |
+| Middlewares e tratamento de erros | ✅ Completo |    2     |
+| Validação de dados                | ✅ Completo |    2     |
+| Persistência MySQL                | ✅ Completo |    3     |
+| Exportação JSON/XML               | ✅ Completo |    3     |
+| Upload de arquivos                | ✅ Completo |    3     |
+| Notificações por e-mail           |   [status]  |     4     |
+| Deploy                            |   [status]  |     5     |
+| Documentação Swagger              |   [status]  |     5     |
 
 ---
 

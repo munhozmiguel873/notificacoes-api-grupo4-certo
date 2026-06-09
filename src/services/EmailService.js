@@ -1,4 +1,3 @@
-// src/services/EmailService.js
 const nodemailer = require("nodemailer");
 
 let transporter = null;

@@ -3,7 +3,54 @@ const router = express.Router();
 const NotificacaoService = require('../services/NotificacaoService');
 const EmailService = require('../services/EmailService');
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Notificacao:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *         tipo:
+ *           type: string
+ *           enum: [confirmacao, lembrete]
+ *         destinatarioEmail:
+ *           type: string
+ *         assunto:
+ *           type: string
+ *         enviada:
+ *           type: boolean
+ *         dataEnvio:
+ *           type: string
+ *           format: date-time
+ */
+
+
+
 // GET /notificacoes — listar com filtros
+/**
+ * @swagger
+ * /notificacoes:
+ *   get:
+ *     summary: Listar notificações
+ *     tags: [Notificações]
+ *     parameters:
+ *       - in: query
+ *         name: tipo
+ *         schema:
+ *           type: string
+ *           enum: [confirmacao, lembrete]
+ *       - in: query
+ *         name: enviada
+ *         schema:
+ *           type: string
+ *           enum: [true, false]
+ *     responses:
+ *       200:
+ *         description: Lista de notificações
+ */
+
 router.get('/', async (req, res, next) => {
   try {
     const notificacoes = await NotificacaoService.listarTodas({
@@ -16,7 +63,19 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+
 // GET /notificacoes/estatisticas — dashboard de envios
+/**
+ * @swagger
+ * /notificacoes/estatisticas:
+ *   get:
+ *     summary: Estatísticas de envio
+ *     tags: [Notificações]
+ *     responses:
+ *       200:
+ *         description: Contagens de notificações
+ */
+
 router.get('/estatisticas', async (req, res, next) => {
   try {
     const stats = await NotificacaoService.obterEstatisticas();
@@ -37,6 +96,25 @@ router.get('/:id', async (req, res, next) => {
 });
 
 // POST /notificacoes/:id/reenviar — reenviar uma notificação
+/**
+ * @swagger
+ * /notificacoes/{id}/reenviar:
+ *   post:
+ *     summary: Reenviar uma notificação
+ *     tags: [Notificações]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Notificação reenviada
+ *       404:
+ *         description: Notificação não encontrada
+ */
+
 router.post('/:id/reenviar', async (req, res, next) => {
   try {
     const resultado = await NotificacaoService.reenviar(parseInt(req.params.id));
@@ -62,86 +140,5 @@ router.post('/teste-email', async (req, res, next) => {
     next(erro);
   }
 });
-
-
-/**
- * @swagger
- * components:
- *   schemas:
- *     Notificacao:
- *       type: object
- *       properties:
- *         id:
- *           type: integer
- *         tipo:
- *           type: string
- *           enum: [confirmacao, lembrete]
- *         destinatario_email:
- *           type: string
- *         assunto:
- *           type: string
- *         enviada:
- *           type: boolean
- *         data_envio:
- *           type: string
- *           format: date-time
- */
-
-/**
- * @swagger
- * /notificacoes:
- *   get:
- *     summary: Listar notificações
- *     tags: [Notificações]
- *     parameters:
- *       - in: query
- *         name: tipo
- *         schema:
- *           type: string
- *           enum: [confirmacao, lembrete]
- *       
- *       - in: query
- *         name: enviada
- *         schema:
- *           type: string
- *           enum: [true, false]
- *     
- *     responses:
- *       200:
- *         description: Lista de notificações
- */
-
-/**
- * @swagger
- * /notificacoes/estatisticas:
- *   get:
- *     summary: Estatísticas de envio
- *     tags: [Notificações]
- *     responses:
- *       200:
- *         description: Contagens de notificações
- */
-
-/**
- * @swagger
- * /notificacoes/{id}/reenviar:
- *   post:
- *     summary: Reenviar uma notificação
- *     tags: [Notificações]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: integer
- *     
- *     responses:
- *       200:
- *         description: Notificação reenviada
- *       
- *       404:
- *         description: Notificação não encontrada
- */
-
 
 module.exports = router;

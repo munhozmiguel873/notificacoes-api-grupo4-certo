@@ -32,8 +32,7 @@ Toda aplicação profissional tem regras que vão além do CRUD. No nosso módul
 // src/services/NotificacaoService.js
 const { Notificacao, Inscricao, Evento, Participante } = require('../models');
 const EmailService = require('./EmailService');
-const { NotFoundError, ValidationError } = require('../errors/AppError');
-const confirmacaoInscricao = require('../templates/email/confirmacaoInscricao');
+const { NotFoundError } = require('../errors/AppError');
 
 async function listarTodas(filtros = {}) {
   const where = {};
@@ -87,7 +86,7 @@ async function reenviar(id) {
   // Ou permitir reenvio explícito (útil para testes)
   const html = notificacao.conteudo;
   const resultado = await EmailService.enviar(
-    notificacao.destinatario_email,
+    notificacao.destinatarioEmail,
     notificacao.assunto,
     html
   );
@@ -95,7 +94,7 @@ async function reenviar(id) {
   // Atualizar registro
   await notificacao.update({
     enviada: true,
-    data_envio: new Date(),
+    dataEnvio: new Date(),
   });
 
   return {
