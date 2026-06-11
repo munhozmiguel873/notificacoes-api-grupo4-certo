@@ -23,52 +23,54 @@ O escopo do projeto inclui o desenvolvimento de uma API REST para gerenciar even
 
 ---
 
-## 2. Tecnologias Utilizadas
-______________________________________________________________________________________________________________
-| Tecnologia | Versão |                                   Justificativa                                       |
-|------------|--------| --------------------------------------------------------------------------------------|
-| Node.js    | v18+   | Escolhemos o Node.js por ser uma plataforma de desenvolvimento leve e eficiente e     |   
-|            |        | ideal para construir APIs.                                                            |
-|------------|--------|---------------------------------------------------------------------------------------|
-| Express.js | 4.x    | Optamos pelo Express.js por ser um framework minimalista e flexível para Node.js, que |   
-|            |        | facilita a criação de APIs  RESTful.                                                  | 
-| -----------|--------|---------------------------------------------------------------------------------------|
-| MySQL      | 8.0    | [por que — sinergia com BD]                                                           |
-| -----------|--------|---------------------------------------------------------------------------------------|
-| Sequelize  | 6.x    | [por que]                                                                             |
-| -----------|--------|---------------------------------------------------------------------------------------|
-| ...        |        |                                                                                       |
-| -----------|--------|---------------------------------------------------------------------------------------|
+| Tecnologia | Versão | Justificativa                                                                                                                                                                                                                                                |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Node.js    | v18+   | Escolhemos o Node.js por ser uma plataforma de desenvolvimento leve e eficiente, ideal para construir APIs.                                                                                                                                                  |
+| Express.js | 4.x    | Optamos pelo Express.js por ser um framework minimalista e flexível para Node.js, que facilita a criação de APIs RESTful.                                                                                                                                    |
+| MySQL      | 8.0    | Escolhemos o MySQL como nosso sistema de gerenciamento de banco de dados devido à sua robustez, escalabilidade e ampla adoção no mercado.                                                                                                                    |
+| Sequelize  | 6.x    | Escolhemos o Sequelize por ser um ORM (Object-Relational Mapping) que simplifica a interação com o banco de dados, permitindo manipular tabelas e registros por meio de objetos JavaScript, além de facilitar a manutenção e o desenvolvimento da aplicação. |
 
+Você pode preencher essa seção assim:
 
-| Node.js    | v18+   | [por que escolheram]
-escolhemos o Node.js por ser uma plataforma de desenvolvimento leve e eficiente, ideal para construir APIs. Ele possui uma vasta comunidade e uma grande quantidade de bibliotecas disponíveis, o que facilita a implementação de funcionalidades adicionais no futuro. Além disso, o Node.js é conhecido por seu desempenho em aplicações I/O intensivas, o que é benéfico para uma API que pode lidar com múltiplas requisições simultâneas.
-| Express.js | 4.x    | [por que]
-Optamos pelo Express.js por ser um framework minimalista e flexível para Node.js, que facilita a criação de APIs RESTful. Ele oferece uma estrutura simples para definir rotas, middlewares e lidar com requisições e respostas, o que acelera o desenvolvimento. O Express também é amplamente utilizado na indústria, tornando-o uma escolha sólida para este projeto.
-| MySQL      | 8.0    | [por que — sinergia com BD]
-Escolhemos o MySQL como nosso sistema de gerenciamento de banco de dados devido à sua robustez, escalabilidade e ampla adoção. O MySQL é uma escolha popular para aplicações web e oferece suporte a transações, o que é importante para garantir a integridade dos dados em operações críticas. Além disso, o MySQL é compatível com o Sequelize, nosso ORM escolhido, facilitando a integração entre a aplicação e o banco de dados.
-| Sequelize  | 6.x    | [por que]
-Optamos pelo Sequelize como nosso ORM (Object-Relational Mapping) para facilitar a interação com o banco de dados MySQL. O Sequelize oferece uma abstração de alto nível para manipulação de dados, permitindo que trabalhemos com objetos JavaScript em vez de escrever consultas SQL diretamente. Ele suporta recursos avançados como associações, validações e migrações, o que torna o desenvolvimento mais eficiente e organizado. Além disso, o Sequelize é bem documentado e amplamente utilizado na comunidade Node.js, o que nos proporcionou uma curva de aprendizado suave.
+### 3. Arquitetura do Sistema
 
+#### 3.1 Diagrama de Classes
 
+O diagrama de classes do sistema encontra-se na pasta **docs/** do projeto e representa as entidades principais, seus atributos, métodos e relacionamentos, servindo como base para a modelagem orientada a objetos da aplicação.
 
+#### 3.2 Arquitetura em Camadas
 
+O sistema foi desenvolvido seguindo o padrão de arquitetura em camadas, visando organização, manutenção e escalabilidade.
 
+**Fluxo da aplicação:**
 
+**Routes → Controllers → Services → Models → MySQL**
 
+* **Routes:** definem os endpoints da API e recebem as requisições HTTP.
+* **Controllers:** processam as requisições recebidas, validam os dados e encaminham as operações para a camada de serviços.
+* **Services:** concentram as regras de negócio da aplicação.
+* **Models:** representam as entidades do banco de dados e realizam a comunicação com o Sequelize ORM.
+* **MySQL:** responsável pelo armazenamento persistente dos dados do sistema.
 
----
+Essa separação de responsabilidades facilita a manutenção, os testes e a evolução do projeto.
 
-## 3. Arquitetura do Sistema
-### 3.1 Diagrama de Classes
-[Referência ao diagrama UML em docs/]
-### 3.2 Arquitetura em Camadas
-[Descreva brevemente: Routes → Controllers → Services → Models → MySQL]
-### 3.3 Banco de Dados
+#### 3.3 Banco de Dados
 
-[Quantas tabelas, relacionamentos principais]
+O banco de dados foi modelado utilizando o MySQL e é composto pelas tabelas necessárias para armazenar as informações do sistema.
 
----
+**Principais tabelas:**
+
+* Usuários
+* Eventos
+* Inscrições
+
+**Relacionamentos:**
+
+* Um usuário pode realizar várias inscrições.
+* Um evento pode possuir várias inscrições.
+* Cada inscrição pertence a um único usuário e a um único evento.
+
+Dessa forma, o relacionamento entre **Usuários** e **Eventos** é do tipo **muitos para muitos (N:N)**, sendo intermediado pela tabela **Inscrições**.
 
 ## 4. Funcionalidades Implementadas
 |           Funcionalidade          |    Status   | Bloco PBE |
@@ -81,38 +83,66 @@ Optamos pelo Sequelize como nosso ORM (Object-Relational Mapping) para facilitar
 | Persistência MySQL                | ✅ Completo |    3     |
 | Exportação JSON/XML               | ✅ Completo |    3     |
 | Upload de arquivos                | ✅ Completo |    3     |
-| Notificações por e-mail           |   [status]  |     4     |
-| Deploy                            |   [status]  |     5     |
-| Documentação Swagger              |   [status]  |     5     |
+| Notificações por e-mail           |   ✅ Completo  |     4     |
+| Deploy                            |   ✅ Completo  |     5     |
+| Documentação Swagger              |   ✅ Completo  |     5     |
 
 ---
 
 ## 5. Processo de Desenvolvimento
+
 ### 5.1 Metodologia
-[Ágil com sprints de 2 semanas, Kanban no GitHub Projects]
+
+A equipe adotou uma metodologia ágil baseada em sprints de duas semanas, permitindo a entrega gradual das funcionalidades do sistema. Para o acompanhamento das tarefas foi utilizado o GitHub Projects no formato Kanban, organizando as atividades em colunas como "A Fazer", "Em Desenvolvimento" e "Concluído".
+
 ### 5.2 Divisão de Trabalho
-[Quem fez o quê — referência à matriz RACI]
+
+As responsabilidades foram distribuídas entre os membros da equipe de acordo com suas habilidades e disponibilidade. As atribuições detalhadas encontram-se na matriz RACI do projeto, contemplando atividades como modelagem do banco de dados, desenvolvimento da API, testes, documentação e gerenciamento do repositório.
+
 ### 5.3 Controle de Versão
-[Quantos commits, como organizaram branches]
+
+O controle de versão foi realizado utilizando Git e GitHub. Cada funcionalidade foi desenvolvida em branches específicas, sendo posteriormente integrada à branch principal após revisão e testes. A equipe manteve um histórico organizado de commits com mensagens descritivas, facilitando o rastreamento das alterações e a colaboração entre os membros.
 
 ---
 
 ## 6. Desafios e Soluções
-| Desafio | Como resolvemos |
-| ------------------------------- | ------------------------------------------- |
 
-| [ex: conflitos de merge] | [ex: combinamos de sempre fazer pull antes] |
-| [ex: Sequelize logging confuso] | [ex: desativamos em produção] |
+| Desafio                               | Como resolvemos                                                                                                     |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Conflitos de merge entre branches     | Definimos a prática de realizar pull antes de iniciar novas alterações e manter branches atualizadas.               |
+| Configuração inicial do Sequelize     | Consultamos a documentação oficial e criamos modelos padronizados para facilitar a integração com o banco de dados. |
+| Organização das tarefas da equipe     | Utilizamos GitHub Projects com metodologia Kanban para acompanhar o andamento das atividades.                       |
+| Tratamento de erros da API            | Implementamos validações e respostas padronizadas para melhorar a identificação de problemas.                       |
+| Integração entre API e banco de dados | Realizamos testes incrementais para validar cada operação CRUD antes da integração completa.                        |
 
 ---
 
 ## 7. Lições Aprendidas
-[O que cada membro aprendeu de mais importante durante o projeto]
+
+Durante o desenvolvimento do projeto, os integrantes adquiriram conhecimentos importantes sobre desenvolvimento back-end, trabalho em equipe e boas práticas de engenharia de software. Entre os principais aprendizados destacam-se:
+
+* Utilização do Node.js e Express para criação de APIs RESTful.
+* Modelagem e manipulação de bancos de dados relacionais utilizando MySQL.
+* Uso do Sequelize ORM para abstração das operações de banco de dados.
+* Controle de versão com Git e GitHub.
+* Aplicação de metodologias ágeis e organização de tarefas em Kanban.
+* Importância da documentação e da comunicação entre os membros da equipe.
 
 ---
 
-## 8. Próximos Passos (se o projeto continuasse)
-[O que fariam se tivessem mais tempo — autenticação, front-end, notificações push, etc.]
+## 8. Próximos Passos
+
+Caso o projeto tivesse continuidade, as seguintes melhorias poderiam ser implementadas:
+
+* Sistema completo de autenticação e autorização utilizando JWT.
+* Desenvolvimento de uma interface front-end para os usuários.
+* Implementação de notificações por e-mail ou push.
+* Criação de dashboards com relatórios e estatísticas.
+* Implementação de testes automatizados.
+* Deploy da aplicação em ambiente de produção.
+* Integração com serviços externos por meio de APIs.
+* Melhorias de segurança e monitoramento da aplicação.
+
 
 ---
 
