@@ -24,7 +24,7 @@ UCs: Programação Back-End + Projetos de Software
 
 ### Equipe
 
-- [Nome 1] — [GitHub](https://github.com/user1)
+- [Nome 1] — [GitHub](https://github.com/munhozmiguel873)
 - [Nome 2] — [GitHub](https://github.com/user2)
 - [Nome 3] — [GitHub](https://github.com/user3)
 
@@ -42,6 +42,6 @@ UCs: Programação Back-End + Projetos de Software
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/USUARIO/notificacoes-api-grupoX.git
+   git clone https://github.com/munhozmiguel873/notificacoes-api-grupo4-certo
    cd notificacoes-api-grupoX
    ```
