@@ -1,135 +1,47 @@
-<!-- # Notificações API
-
-API para módulo de notificações por e-mail de uma plataforma de eventos.
-
-## Como rodar
-
-1. Clone o repositório
-2. Execute `npm install`
-3. Execute `npm start`
-4. Acesse `http://localhost:3000`
-
-## Tecnologias
-
-- Node.js
-- Express.js -->
-
 # 🔔 Notificações API
 
-API REST para o módulo de notificações por e-mail de uma plataforma de gerenciamento de eventos online.
+API REST para módulo de notificações por e-mail de uma plataforma de eventos.
+
+![Node.js](https://img.shields.io/badge/Node.js-24+-green)
+![Express](https://img.shields.io/badge/Express-4.x-blue)
+![MariaDB](https://img.shields.io/badge/MariaDB-11.x-blue)
+![Deploy](https://img.shields.io/badge/Deploy-Servidor%20SENAI-blueviolet)
+
+**🌐 URL de Produção:** [endereço IP do seu container no servidor]
+**📚 Documentação:** [sua URL]/api-docs
+
+---
 
 ## 📋 Sobre o Projeto
 
-Este projeto faz parte da Situação de Aprendizagem do curso de Programação Back-End do SENAI.
-O módulo é responsável por enviar notificações (confirmação de inscrição, lembretes)
-para participantes de eventos.
+Sistema de notificações por e-mail para uma plataforma de eventos.
+Quando um participante se inscreve em um evento, recebe automaticamente
+um e-mail de confirmação. O sistema também envia notificações de cancelamento.
 
-## 🚀 Como Rodar
+**Desenvolvido como projeto da SA2** — SENAI "Santo Paschoal Crepaldi"
+Curso: Técnico em Desenvolvimento de Sistemas
+UCs: Programação Back-End + Projetos de Software
+
+### Equipe
+
+- [Nome 1] — [GitHub](https://github.com/user1)
+- [Nome 2] — [GitHub](https://github.com/user2)
+- [Nome 3] — [GitHub](https://github.com/user3)
+
+---
+
+## 🚀 Como Rodar Localmente
+
+### Pré-requisitos
+
+- Node.js 24+
+- MySQL 8.0 ou MariaDB 11+
+- Git
+
+### Instalação
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/SEU-USUARIO/notificacoes-api.git
+   git clone https://github.com/USUARIO/notificacoes-api-grupoX.git
+   cd notificacoes-api-grupoX
    ```
-
-````
-
-2. Instale as dependências:
-   ```bash
-   npm install
-   ```
-3. Inicie o servidor:
-   ```bash
-   npm start
-   ```
-4. Acesse:
-   - API: http://localhost:3000
-   - Documentação: http://localhost:3000/api-docs
-
-## 📚 Rotas Disponíveis
-
-### Eventos
-
-| Método | Rota         | Descrição     |
-| ------ | ------------ | ------------- |
-| GET    | /eventos     | Listar todos  |
-| GET    | /eventos/:id | Buscar por ID |
-| POST   | /eventos     | Criar novo    |
-| PUT    | /eventos/:id | Atualizar     |
-| DELETE | /eventos/:id | Deletar       |
-
-### Participantes
-
-| Método | Rota               | Descrição     |
-| ------ | ------------------ | ------------- |
-| GET    | /participantes     | Listar todos  |
-| GET    | /participantes/:id | Buscar por ID |
-| POST   | /participantes     | Criar novo    |
-| PUT    | /participantes/:id | Atualizar     |
-| DELETE | /participantes/:id | Deletar       |
-
-### Inscrições
-
-| Método | Rota                         | Descrição          |
-| ------ | ---------------------------- | ------------------ |
-| POST   | /inscricoes                  | Criar inscrição    |
-| GET    | /inscricoes                  | Listar todas       |
-| GET    | /inscricoes/evento/:eventoId | Listar por evento  |
-| PATCH  | /inscricoes/:id/cancelar     | Cancelar inscrição |
-
-## 🛠️ Tecnologias
-
-- Node.js
-- Express.js
-- Swagger (swagger-jsdoc + swagger-ui-express)
-
-## 📁 Estrutura do Projeto
-
-```
-src/
-├── models/          → Dados e regras de negócio
-├── controllers/     → Lógica das requisições
-├── routes/          → Mapeamento de URLs
-├── swagger.js       → Configuração do Swagger
-├── app.js           → Configuração do Express
-└── server.js        → Inicialização do servidor
-````
-
-### Notificações
-
-| Método | Rota | Descrição |
-
-|--------|------|-----------|
-
-| GET | /notificacoes | Listar (filtros: tipo, enviada) |
-
-| GET | /notificacoes/estatisticas | Dashboard de envios |
-
-| GET | /notificacoes/:id | Detalhes |
-
-| POST | /notificacoes/:id/reenviar | Reenviar |
-
-| POST | /notificacoes/teste-email | Enviar e-mail de teste |
-
-### Exportação
-
-| Método | Rota | Descrição |
-
-|--------|------|-----------|
-
-| GET | /exportar/eventos/xml | Eventos em XML |
-
-| GET | /exportar/eventos/json | Eventos em JSON (download) |
-
-| GET | /exportar/relatorio/inscricoes | Relatório de inscrições |
-
-## 📧 Sistema de Notificações
-
-A API envia e-mails automaticamente usando o **Padrão Observer**:
-
-- **Confirmação de inscrição** — enviado ao criar uma inscrição
-
-- **Cancelamento** — enviado ao cancelar uma inscrição
-
-Em desenvolvimento, os e-mails são capturados pelo **MailPit** (servidor SMTP local).
-
-Visualize os e-mails em `http://MAILPIT_IP:8025`.
