@@ -23,8 +23,8 @@ O escopo do projeto inclui o desenvolvimento de uma API REST para gerenciar even
 
 ---
 
-| Tecnologia | Versão | Justificativa                                                                                                                                                                                                                                                |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Tecnologia | Versão |  Justificativa                                                                                                         |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------- |
 | Node.js    | v18+   | Escolhemos o Node.js por ser uma plataforma de desenvolvimento leve e eficiente, ideal para construir APIs.                                                                                                                                                  |
 | Express.js | 4.x    | Optamos pelo Express.js por ser um framework minimalista e flexível para Node.js, que facilita a criação de APIs RESTful.                                                                                                                                    |
 | MySQL      | 8.0    | Escolhemos o MySQL como nosso sistema de gerenciamento de banco de dados devido à sua robustez, escalabilidade e ampla adoção no mercado.                                                                                                                    |

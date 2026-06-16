@@ -1,8 +1,8 @@
 📋 Parte 1 — Auditoria do Swagger Atual
 Antes de documentar, verifiquem o que já está feito. Acessem http://localhost:3000/api-docs e marquem:
 
-| Módulo            | Método | Endpoint                         | Status |
-| ----------------- | ------ | -------------------------------- | ------ |
+| Módulo            | Método | Endpoint                         |  Status  |
+| ----------------- | ------ | -------------------------------- | -------- |
 | **Eventos**       | GET    | `/eventos`                       | ✅      |
 |                   | GET    | `/eventos/:id`                   | ✅      |
 |                   | POST   | `/eventos`                       | ✅      |
