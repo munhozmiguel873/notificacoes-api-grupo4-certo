@@ -14,9 +14,6 @@ docs/relatorio-final.md :
 [Descreva em 2-3 parágrafos o que o projeto faz e por que ele é necessário]
 O projeto é uma API de Notificações que gerencia eventos, participantes e inscrições. Ele permite o cadastro de eventos, a inscrição de participantes e a organização das informações necessárias para futuros envios de notificações por e-mail. A API é essencial para facilitar a comunicação entre organizadores de eventos e seus participantes, garantindo que todos estejam informados sobre atualizações, lembretes e outras comunicações importantes relacionadas aos eventos.
 
-
-
-
 ### 1.2 Escopo
 [O que está incluído e o que ficou de fora]
 O escopo do projeto inclui o desenvolvimento de uma API REST para gerenciar eventos, participantes e inscrições, utilizando Node.js e Express. A API suporta operações CRUD para eventos e participantes, bem como a criação de inscrições. O projeto não inclui a implementação de um front-end, integração com serviços de terceiros para envio de notificações por e-mail ou autenticação de usuários. O foco principal é a estruturação da API e a organização dos dados em memória, sem persistência em banco de dados.

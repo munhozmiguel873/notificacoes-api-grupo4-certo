@@ -106,6 +106,7 @@ UCs: Programação Back-End + Projetos de Software
 
 ## 📁 Estrutura do Projeto
 
+```text
 notificacoes-api-grupo4-certo/
 ├── docs/
 ├── src/
@@ -163,7 +164,7 @@ notificacoes-api-grupo4-certo/
 ├── package.json
 ├── README.md
 └── RELATORIO-CORRECOES.md
-
+```
 ---
 
 ## 🔧 Scripts Disponíveis
@@ -175,6 +176,21 @@ notificacoes-api-grupo4-certo/
 | `npm run db:migrate` | Executa migrations    |
 | `npm run db:seed`    | Insere dados iniciais |
 | `npm run db:reset`   | Recria banco completo |
+
+---
+
+## 🧪 Parte 2 — Testes Manuais Finais
+
+Executem o roteiro de testes **tanto no localhost quanto na URL de produção**:
+
+| Teste | Local | Produção |
+| --- | --- | --- |
+| `GET /` (raiz) | ✅ | ✅ |
+| `GET /eventos` | ✅ | ✅ |
+| `POST /eventos` | ✅ | ✅ |
+| `GET /api-docs` (Swagger) | ✅ | ✅ |
+| `POST /inscricoes` + e-mail | ✅ | ✅ |
+| `GET /notificacoes/estatisticas` | ✅ | ✅ |
 
 ---
 

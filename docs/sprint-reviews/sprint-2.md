@@ -48,8 +48,7 @@
 * Cards concluídos: 11
 * Taxa de conclusão: 100%
 * Commits por membro:
-
-  * Miguel Munhoz: 100 commits
+* Miguel Munhoz: 100% commits
 
 ---
 
