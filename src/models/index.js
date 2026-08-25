@@ -4,6 +4,7 @@ const Evento = require("./EventoModel");
 const Participante = require("./ParticipanteModel");
 const Inscricao = require("./InscricaoModel");
 const Notificacao = require("./NotificacaoModel");
+const Usuario = require("./UsuarioModel");
 
 // ── Relacionamentos ──
 
@@ -37,4 +38,5 @@ module.exports = {
   Participante,
   Inscricao,
   Notificacao,
+  Usuario,
 };

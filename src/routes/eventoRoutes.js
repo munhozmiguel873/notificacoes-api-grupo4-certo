@@ -4,7 +4,7 @@ const router = express.Router();
 const EventoController = require("../controllers/EventoController");
 const upload = require("../config/upload");
 const cacheMiddleware = require("../middlewares/cacheMiddleware");
-
+const authMiddleware = require("../middlewares/authMiddleware");
 
 /**
  * @swagger
@@ -58,7 +58,6 @@ const cacheMiddleware = require("../middlewares/cacheMiddleware");
  *               example: 404
  */
 
-
 // GET /eventos — listar todos os eventos
 /**
  * @swagger
@@ -78,7 +77,6 @@ const cacheMiddleware = require("../middlewares/cacheMiddleware");
  */
 router.get("/", cacheMiddleware(30), EventoController.index);
 
-
 // GET /eventos/futuros — listar apenas eventos futuros
 /**
  * @swagger
@@ -97,7 +95,6 @@ router.get("/", cacheMiddleware(30), EventoController.index);
  *                 $ref: '#/components/schemas/Evento'
  */
 router.get("/futuros", cacheMiddleware(30), EventoController.listarFuturos);
-
 
 // GET /eventos/:id — buscar evento por ID
 /**
@@ -128,7 +125,6 @@ router.get("/futuros", cacheMiddleware(30), EventoController.listarFuturos);
  */
 router.get("/:id", cacheMiddleware(30), EventoController.show);
 
-
 // POST /eventos — criar um novo evento
 /**
  * @swagger
@@ -136,6 +132,8 @@ router.get("/:id", cacheMiddleware(30), EventoController.show);
  *   post:
  *     summary: Criar um novo evento
  *     tags: [Eventos]
+ *    security:
+ *     - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -168,8 +166,7 @@ router.get("/:id", cacheMiddleware(30), EventoController.show);
  *       400:
  *         description: Dados inválidos
  */
-router.post("/", EventoController.store);
-
+router.post("/", authMiddleware, EventoController.store);
 
 // POST /eventos/:id/banner — enviar imagem do banner
 /**
@@ -204,33 +201,36 @@ router.post("/", EventoController.store);
  *         description: Evento não encontrado
  */
 
-
 // Rota para upload do banner do evento
-router.post("/:id/banner", upload.single("banner"), async (req, res, next) => {
-  try {
-    const { Evento } = require("../models");
-    const evento = await Evento.findByPk(req.params.id);
+router.post(
+  "/:id/banner",
+  authMiddleware,
+  upload.single("banner"),
+  async (req, res, next) => {
+    try {
+      const { Evento } = require("../models");
+      const evento = await Evento.findByPk(req.params.id);
 
-    if (!evento) {
-      return res.status(404).json({ erro: "Evento não encontrado" });
+      if (!evento) {
+        return res.status(404).json({ erro: "Evento não encontrado" });
+      }
+
+      if (!req.file) {
+        return res.status(400).json({ erro: "Nenhum arquivo enviado" });
+      }
+
+      // Salvar o caminho do arquivo no banco
+      await evento.update({ banner: `/uploads/${req.file.filename}` });
+
+      res.json({
+        mensagem: "Banner atualizado com sucesso",
+        banner: `/uploads/${req.file.filename}`,
+      });
+    } catch (erro) {
+      next(erro);
     }
-
-    if (!req.file) {
-      return res.status(400).json({ erro: "Nenhum arquivo enviado" });
-    }
-
-    // Salvar o caminho do arquivo no banco
-    await evento.update({ banner: `/uploads/${req.file.filename}` });
-
-    res.json({
-      mensagem: "Banner atualizado com sucesso",
-      banner: `/uploads/${req.file.filename}`,
-    });
-  } catch (erro) {
-    next(erro);
-  }
-});
-
+  },
+);
 
 // PUT /eventos/:id — atualizar um evento
 /**
@@ -268,8 +268,7 @@ router.post("/:id/banner", upload.single("banner"), async (req, res, next) => {
  *       404:
  *         description: Evento não encontrado
  */
-router.put("/:id", EventoController.update);
-
+router.put("/:id", authMiddleware, EventoController.update);
 
 // DELETE /eventos/:id — deletar um evento
 /**
@@ -290,6 +289,6 @@ router.put("/:id", EventoController.update);
  *       404:
  *         description: Evento não encontrado
  */
-router.delete("/:id", EventoController.destroy);
+router.delete("/:id", authMiddleware, EventoController.destroy);
 
 module.exports = router;

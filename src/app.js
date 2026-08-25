@@ -4,6 +4,8 @@ const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./swagger");
 const path = require("path");
+const authRoutes = require("./routes/authRoutes");
+
 
 require("./events/notificacaoObserver");
 
@@ -38,6 +40,8 @@ app.use("/participantes", participanteRoutes);
 app.use("/inscricoes", inscricaoRoutes);
 app.use("/exportar", exportRoutes);
 app.use("/notificacoes", notificacaoRoutes);
+app.use("/auth", authRoutes);
+
 
 // Rota raiz (informativa)
 app.get("/", (req, res) => {
@@ -49,6 +53,7 @@ app.get("/", (req, res) => {
       eventos: "/eventos",
       participantes: "/participantes",
       inscricoes: "/inscricoes",
+      auth: "/auth"
     },
   });
 });

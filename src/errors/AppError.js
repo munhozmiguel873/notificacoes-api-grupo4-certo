@@ -22,4 +22,16 @@ class ValidationError extends AppError {
   }
 }
 
-module.exports = { AppError, NotFoundError, ValidationError };
+class UnauthorizedError extends AppError {
+  constructor(mensagem = "Não autorizado") {
+    super(mensagem, 401);
+    this.name = "UnauthorizedError";
+  }
+}
+
+module.exports = {
+  AppError,
+  NotFoundError,
+  ValidationError,
+  UnauthorizedError,
+};
